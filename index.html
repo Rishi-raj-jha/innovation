@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ScholarshipMatcher | Discover Your Opportunities</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-icon">S</div>
+
+      <div>
+        <h2>Scholarship<span>Matcher</span></h2>
+        <small>YOUR OPPORTUNITY GUIDE</small>
+      </div>
+    </div>
+
+    <p class="nav-label">WORKSPACE</p>
+
+    <nav>
+      <button class="nav-link active" data-page="dashboard">
+        ▦ <span>Dashboard</span>
+      </button>
+
+      <button class="nav-link" data-page="profile">
+        ♙ <span>Student Details</span>
+      </button>
+
+      <button class="nav-link" data-page="discover">
+        ⌕ <span>Find Scholarships</span>
+      </button>
+
+      <button class="nav-link" data-page="saved">
+        ♡ <span>Saved Scholarships</span>
+      </button>
+      <button class="nav-link" data-page="applications">☷ <span>Applications</span></button>
+      <button class="nav-link" data-page="history">◷ <span>Check History</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="help-card">
+        <div class="help-icon">✦</div>
+
+        <strong>Checking for someone else?</strong>
+
+        <p>
+          You can check scholarships for multiple students without creating separate accounts.
+        </p>
+
+        <button id="completeProfileBtn">
+          Add or switch students →
+        </button>
+      </div>
+
+      <p class="sidebar-footer">
+        ScholarshipMatcher © 2026
+      </p>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+
+  <main class="main">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+      <div>
+        <p class="eyebrow">STUDENT WORKSPACE</p>
+        <h1 id="pageTitle">Your scholarship dashboard</h1>
+      </div>
+
+      <div class="top-user">
+        <div class="avatar" id="userAvatar">G</div>
+
+        <div>
+          <strong id="headerName">Guest Student</strong>
+          <small>Current student check</small>
+        </div>
+      </div>
+      <div class="account-actions"><button id="accountBtn" class="secondary-btn">Log in / Register</button><button id="logoutBtn" class="secondary-btn" hidden>Log out</button></div>
+
+    </header>
+
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboardPage" class="page active">
+
+      <div class="welcome-banner">
+
+        <div>
+          <p class="eyebrow light">
+            YOUR NEXT OPPORTUNITY STARTS HERE
+          </p>
+
+          <h2>
+            Education deserves<br>
+            every opportunity.
+          </h2>
+
+          <p>
+            Discover scholarships that match your academic,
+            personal and financial profile.
+          </p>
+
+          <button class="primary-btn" data-go="discover">
+            Explore scholarships →
+          </button>
+        </div>
+
+        <div class="banner-art">
+          <div class="art-circle">✦</div>
+
+          <div class="art-card">
+            <span>YOUR FUTURE</span>
+            <strong>Starts with<br>one opportunity.</strong>
+            <div class="art-line"></div>
+            <small>Learn. Grow. Achieve.</small>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- MULTIPLE STUDENT ACCESS -->
+
+      <div class="student-access">
+
+        <div class="student-access-heading">
+          <div>
+            <p class="eyebrow">FLEXIBLE ACCESS</p>
+            <h2>Who are you checking for?</h2>
+            <p>
+              No account is required. Check scholarships for yourself
+              or for another student.
+            </p>
+          </div>
+
+          <span class="access-icon">♙</span>
+        </div>
+
+
+        <div class="access-grid">
+
+          <!-- GUEST CHECK -->
+
+          <div class="access-card guest-card">
+
+            <div class="access-card-icon purple">⌕</div>
+
+            <span class="access-tag">NO ACCOUNT REQUIRED</span>
+
+            <h3>Check as Guest</h3>
+
+            <p>
+              Enter a student's details and immediately discover
+              scholarships they may qualify for.
+            </p>
+
+            <button class="primary-btn" id="startGuestBtn">
+              Start a new check →
+            </button>
+
+          </div>
+
+
+          <!-- ANOTHER STUDENT -->
+
+          <div class="access-card">
+
+            <div class="access-card-icon green">＋</div>
+
+            <span class="access-tag">MULTIPLE STUDENTS</span>
+
+            <h3>Check Another Student</h3>
+
+            <p>
+              Finished checking one student? Start a fresh check
+              for a friend, family member or another student.
+            </p>
+
+            <button class="secondary-btn" id="checkAnotherBtn">
+              Check another person →
+            </button>
+
+          </div>
+
+
+          <!-- SAVED PROFILE -->
+
+          <div class="access-card">
+
+            <div class="access-card-icon orange">▣</div>
+
+            <span class="access-tag">SAVED ON THIS DEVICE</span>
+
+            <h3>Continue Saved Profile</h3>
+
+            <p>
+              Return to the student profile previously saved
+              in this browser.
+            </p>
+
+            <button class="secondary-btn" id="continueProfileBtn">
+              Continue saved profile →
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- MULTIPLE STUDENT WORKSPACE -->
+      <section class="workspace-panel" id="studentWorkspace" aria-labelledby="workspaceTitle">
+        <div class="section-heading workspace-heading">
+          <div>
+            <p class="eyebrow">YOUR STUDENTS</p>
+            <h2 id="workspaceTitle">Student workspace</h2>
+            <p class="muted">Save profiles on this device and switch between students whenever you need.</p>
+          </div>
+          <button class="primary-btn" id="addStudentBtn" type="button">＋ Add student</button>
+        </div>
+        <div id="studentList" class="student-list" aria-live="polite"></div>
+      </section>
+
+      <!-- STATISTICS -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <span class="stat-icon blue">⌕</span>
+          <p>Scholarships checked</p>
+          <h2 id="checkedCount">0</h2>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon green">✓</span>
+          <p>Potential matches</p>
+          <h2 id="matchCount">0</h2>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon orange">♡</span>
+          <p>Saved scholarships</p>
+          <h2 id="savedCount">0</h2>
+        </div>
+
+      </div>
+
+
+      <!-- RECOMMENDATIONS -->
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">PERSONALIZED RESULTS</p>
+          <h2>Scholarships for this student</h2>
+        </div>
+
+        <button class="text-btn" data-go="discover">
+          View all →
+        </button>
+
+      </div>
+
+      <div id="dashboardResults" class="scholarship-grid"></div>
+
+
+      <div class="notice">
+        <span>ⓘ</span>
+
+        <p>
+          Eligibility results are preliminary and depend on the
+          information provided. Always verify the latest conditions
+          through the official scholarship provider.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- STUDENT PROFILE / GUEST CHECK -->
+
+    <section id="profilePage" class="page">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">STUDENT INFORMATION</p>
+          <h2>Enter student details</h2>
+
+          <p class="muted">
+            Fill in the details of the person whose scholarships
+            you want to check. No login is needed.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="guest-info">
+        <span>✦</span>
+
+        <div>
+          <strong>Guest checking is available</strong>
+
+          <p>
+            You can use this form for yourself or another student.
+            Guest checks do not replace your saved profile.
+          </p>
+        </div>
+      </div>
+
+
+      <form id="profileForm" class="profile-form">
+
+        <!-- PERSONAL INFORMATION -->
+
+        <div class="form-section">
+
+          <h3>01. Personal information</h3>
+
+          <div class="form-grid">
+
+            <label>
+              Student name
+
+              <input
+                id="name"
+                name="name"
+                placeholder="Enter student's name"
+              >
+            </label>
+
+
+            <label>
+              State / Union Territory
+
+              <select id="state" name="state">
+
+                <option value="">Select state / UT</option>
+
+                <optgroup label="States">
+                  <option>Andhra Pradesh</option>
+                  <option>Arunachal Pradesh</option>
+                  <option>Assam</option>
+                  <option>Bihar</option>
+                  <option>Chhattisgarh</option>
+                  <option>Goa</option>
+                  <option>Gujarat</option>
+                  <option>Haryana</option>
+                  <option>Himachal Pradesh</option>
+                  <option>Jharkhand</option>
+                  <option>Karnataka</option>
+                  <option>Kerala</option>
+                  <option>Madhya Pradesh</option>
+                  <option>Maharashtra</option>
+                  <option>Manipur</option>
+                  <option>Meghalaya</option>
+                  <option>Mizoram</option>
+                  <option>Nagaland</option>
+                  <option>Odisha</option>
+                  <option>Punjab</option>
+                  <option>Rajasthan</option>
+                  <option>Sikkim</option>
+                  <option>Tamil Nadu</option>
+                  <option>Telangana</option>
+                  <option>Tripura</option>
+                  <option>Uttar Pradesh</option>
+                  <option>Uttarakhand</option>
+                  <option>West Bengal</option>
+                </optgroup>
+
+                <optgroup label="Union Territories">
+                  <option>Andaman and Nicobar Islands</option>
+                  <option>Chandigarh</option>
+                  <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                  <option>Delhi</option>
+                  <option>Jammu and Kashmir</option>
+                  <option>Ladakh</option>
+                  <option>Lakshadweep</option>
+                  <option>Puducherry</option>
+                </optgroup>
+
+              </select>
+
+            </label>
+
+
+            <label>
+              Category
+
+              <select id="category" name="category">
+                <option value="">Select category</option>
+                <option>General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>VJNT</option>
+                <option>SBC</option>
+                <option>EWS</option>
+              </select>
+
+            </label>
+
+
+            <label>
+              Gender
+
+              <select id="gender" name="gender">
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACADEMIC INFORMATION -->
+
+        <div class="form-section">
+
+          <h3>02. Academic information</h3>
+
+          <div class="form-grid">
+
+            <label>
+              Education level
+
+              <select id="level" name="level">
+                <option value="">Select level</option>
+                <option>School</option>
+                <option>Diploma</option>
+                <option>Undergraduate</option>
+                <option>Postgraduate</option>
+              </select>
+
+            </label>
+
+
+            <label>
+              Course
+
+              <input
+                id="course"
+                name="course"
+                placeholder="e.g. B.Tech Computer Science"
+              >
+
+            </label>
+
+
+            <label>
+              Current year
+
+              <select id="year" name="year">
+                <option value="">Select year</option>
+                <option value="1">First year</option>
+                <option value="2">Second year</option>
+                <option value="3">Third year</option>
+                <option value="4">Fourth year</option>
+                <option value="5">Fifth year</option>
+              </select>
+
+            </label>
+
+
+            <label>
+              Academic marks / percentage
+
+              <input
+                id="marks"
+                name="marks"
+                type="number"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="e.g. 85"
+              >
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- FINANCIAL INFORMATION -->
+
+        <div class="form-section">
+
+          <h3>03. Financial information</h3>
+
+          <div class="form-grid">
+
+            <label>
+              Annual family income (₹)
+
+              <input
+                id="income"
+                name="income"
+                type="number"
+                min="0"
+                placeholder="e.g. 250000"
+              >
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- FORM ACTIONS -->
+
+        <div class="form-actions">
+          <button type="button" id="returnAccountBtn" class="secondary-btn" hidden>Return to my account profile</button>
+
+          <button
+            type="reset"
+            class="secondary-btn"
+          >
+            Clear form
+          </button>
+
+
+          <button
+            type="button"
+            id="guestCheckBtn"
+            class="secondary-btn"
+          >
+            Check as Guest →
+          </button>
+
+
+          <button
+            type="submit"
+            class="primary-btn"
+          >
+            Save profile on this device
+          </button>
+
+        </div>
+
+
+        <p class="muted" style="margin-top:15px">
+          Guest checking does not save this student's profile.
+          Saving a profile stores it locally in this browser.
+        </p>
+
+      </form>
+
+
+      <div style="margin-top:18px">
+
+        <button
+          type="button"
+          id="clearProfileBtn"
+          class="secondary-btn"
+        >
+          Reset current student / Check someone else
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- DISCOVER SCHOLARSHIPS -->
+
+    <section id="discoverPage" class="page">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">DISCOVER OPPORTUNITIES</p>
+          <h2>Find scholarships</h2>
+
+          <p class="muted">
+            Explore scholarships and understand how well this
+            student's profile matches their criteria.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="filter-bar">
+
+        <input
+          id="searchInput"
+          placeholder="Search scholarship or provider..."
+        >
+
+        <select id="statusFilter">
+          <option value="all">All results</option>
+          <option value="eligible">Potential match</option>
+          <option value="review">Needs review</option>
+          <option value="not">Not eligible</option>
+        </select>
+
+        <select id="sourceFilter">
+          <option value="all">All sources</option>
+          <option value="NSP">NSP</option>
+          <option value="MahaDBT">MahaDBT</option>
+          <option value="Other">Other</option>
+        </select>
+
+      </div>
+
+
+      <div id="discoverResults" class="scholarship-grid"></div>
+
+    </section>
+
+
+    <!-- SAVED SCHOLARSHIPS -->
+
+    <section id="savedPage" class="page">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">YOUR SHORTLIST</p>
+          <h2>Saved scholarships</h2>
+
+          <p class="muted">
+            Keep track of opportunities you want to explore.
+          </p>
+        </div>
+
+      </div>
+
+      <div id="savedResults" class="scholarship-grid"></div>
+
+    </section>
+
+    <section id="applicationsPage" class="page">
+      <div class="section-heading"><div><p class="eyebrow">APPLICATION TRACKING</p><h2>Application tracker</h2><p class="muted">Track your progress. This is a personal checklist, not a submission to the provider.</p></div></div>
+      <div id="applicationResults" class="scholarship-grid"></div>
+    </section>
+    <section id="historyPage" class="page"><div class="section-heading"><div><p class="eyebrow">PREVIOUS CHECKS</p><h2>Scholarship check history</h2><p class="muted">Only check summaries are stored. Guest history stays on this device.</p></div></div><div id="historyResults" class="scholarship-grid"></div></section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="main-footer">
+
+      ScholarshipMatcher is an independent scholarship discovery tool.
+      Applications are completed through official provider portals.
+
+    </footer>
+
+  </main>
+
+
+  <!-- DETAILS MODAL -->
+
+  <div id="detailsModal" class="modal">
+
+    <div class="modal-panel">
+
+      <button
+        class="modal-close"
+        id="closeModal"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div id="toast" class="toast"></div>
+
+  <div id="authPanel" class="auth-panel" hidden>
+    <div class="auth-card"><button id="authClose" class="modal-close" aria-label="Close">×</button>
+      <p class="eyebrow">PERSISTENT STUDENT WORKSPACE</p><h2 id="authTitle">Welcome back</h2>
+      <p class="muted">Guest checks stay separate. Sign in to sync your profile and saved scholarships.</p>
+      <form id="authForm"><label id="authNameWrap" hidden>Full name<input id="authName" maxlength="120" autocomplete="name"></label>
+        <label>Email<input id="authEmail" type="email" required autocomplete="email"></label>
+        <label>Password<input id="authPassword" type="password" required minlength="8" autocomplete="current-password"></label>
+        <button class="primary-btn" id="authSubmit" type="submit">Log in</button></form>
+      <button id="authMode" class="text-btn" type="button">Create an account</button>
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
